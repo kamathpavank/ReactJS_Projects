@@ -19,6 +19,7 @@ class Select extends Component {
   render(){
     return(
       <div>
+        {/*Pass the selected value to onChange function*/}
         <select className="form-control" onChange={this.onChange.bind(this)}>
           <option value="true">Yes</option>
           <option value="false">No</option>

@@ -23,6 +23,7 @@ class App extends Component {
   }
 
   getSampleText(){
+    //Get data from api and insert it in state
     axios.get(' http://hipsterjesus.com/api?paras='+this.state.paras+'&html='+this.state.html)
     .then((response) => {
       this.setState({text: response.data.text}, function(){
@@ -35,10 +36,12 @@ class App extends Component {
   }
 
   showHtml(x){
+    //this changes state html value and makes api call these values
     this.setState({html:x}, this.getSampleText)
   }
 
   changeParas(x){
+    //this changes state paras value and makes api call these values
     this.setState({paras:x}, this.getSampleText)
   }
 
@@ -50,11 +53,13 @@ class App extends Component {
         <form className="form-inline">
           <div className="form-group">
             <labe>Paragraphs</labe>
+            {/*pass the para value to text component and set state paras value*/}
             <Text value={this.state.paras} onChange={this.changeParas.bind(this)}/>
           </div>
 
           <div className="form-group">
             <labe>Include Html:</labe>
+            {/*pass yes or no to Select component and set state html value*/}
             <Select value={this.state.html} onChange={this.showHtml.bind(this)}/>
           </div>
         </form>

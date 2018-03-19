@@ -13,6 +13,7 @@ class Output extends Component {
   render(){
     return(
       <div className="well output">
+        {/*Outputs the passed value*/}
       {this.props.value}
       </div>
     )
